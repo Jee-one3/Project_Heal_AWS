@@ -171,6 +171,13 @@ It reflects real-world DevOps and Site Reliability Engineering practices.
 
 ---
 
+## 📈 Outputs
+
+![VPC Structure](Outputs/1_VPC_Map.png)
+![Target Group Healthy](Outputs/2_Target_Health.png)
+![ASG Activity Showing Instance Replacement](Outputs/3_ASG_activity.png)
+![ALB Design](Outputs/4_ALB_Map.png)
+
 ## 👤 Author
 
 Jeevan Rohith Antony Manohar  
