@@ -20,7 +20,7 @@ The system is built to **design for failure**, not just deployment.
 
 ---
 
-## 🏗️ Architecture Diagram
+## 📊 Architecture Diagram
 
 ![Architecture Diagram](Auto-heal.png)
 
