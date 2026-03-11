@@ -91,8 +91,7 @@ NAT Gateway (Outbound only)
 
 The system was intentionally stress-tested to validate resilience.
 
-### 1. Application Crash Simulation
-Stopped Apache service on one instance.
+### 1. Application Crash Simulation - Stopped Apache service on one instance.
 
 **Result:**
 - ALB health check failed
@@ -104,8 +103,7 @@ Stopped Apache service on one instance.
 
 ---
 
-### 2. Manual Instance Termination
-Terminated one EC2 instance manually.
+### 2. Manual Instance Termination - Terminated one EC2 instance manually.
 
 **Result:**
 - ASG detected capacity drift
@@ -115,8 +113,7 @@ Terminated one EC2 instance manually.
 
 ---
 
-### 3. Load Spike Simulation
-Generated high CPU load using stress tool.
+### 3. Load Spike Simulation - Generated high CPU load using stress tool.
 
 **Result:**
 - CPU utilization exceeded 50%
