@@ -124,6 +124,15 @@ The system was intentionally stress-tested to validate resilience.
 
 ---
 
+## Outputs
+
+![VPC Structure](Outputs/1_VPC_Map.png)
+![Target Group Healthy](Outputs/2_Target_Health.png)
+![ASG Activity Showing Instance Replacement](Outputs/3_ASG_activity.png)
+![ALB Design](Outputs/4_ALB_Map.png)
+
+---
+
 ## Skills & Technologies Used
 
 - Amazon EC2  
@@ -175,13 +184,6 @@ This project demonstrates hands-on experience in:
 It reflects real-world DevOps and Site Reliability Engineering practices.
 
 ---
-
-## Outputs
-
-![VPC Structure](Outputs/1_VPC_Map.png)
-![Target Group Healthy](Outputs/2_Target_Health.png)
-![ASG Activity Showing Instance Replacement](Outputs/3_ASG_activity.png)
-![ALB Design](Outputs/4_ALB_Map.png)
 
 ## Author
 
