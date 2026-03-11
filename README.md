@@ -2,6 +2,15 @@
 ### Multi-AZ | Auto Scaling | Health-Based Recovery | Secure Private Backend
 
 ---
+## Problem Statement
+
+In a basic infrastructure setup, a server crash can cause downtime, traffic spikes can slow down performance and manual intervention is often required to restore the service. This creates operational risk, poor user experience and most importantly potential business loss. 
+
+The challenge is to design a cloud infrastructure that can automatically detect failures, replace unhealthy servers, scale based on demand and keep backend systems secure — all without human intervention. 
+
+This project addresses that challenge by building a resilient, self-healing architecture on AWS.
+
+---
 
 ## Project Overview
 
@@ -68,6 +77,19 @@ The system is built to **design for failure**, not just deployment.
 
 ---
 
+## Traffic Flow
+Internet
+➜
+Internet Gateway
+➜
+Application Load Balancer (Public Subnets)
+➜
+Auto Scaling Group (Private Subnets across 2 AZs)
+➜
+NAT Gateway (Outbound only)
+
+---
+
 ## Self-Healing & Failure Testing
 
 The system was intentionally stress-tested to validate resilience.
@@ -108,19 +130,6 @@ Generated high CPU load using stress tool.
 
 ---
 
-## Traffic Flow
-Internet
-➜
-Internet Gateway
-➜
-Application Load Balancer (Public Subnets)
-➜
-Auto Scaling Group (Private Subnets across 2 AZs)
-➜
-NAT Gateway (Outbound only)
-
----
-
 ## Skills & Technologies Used
 
 - Amazon EC2  
@@ -135,25 +144,27 @@ NAT Gateway (Outbound only)
 - Linux (Amazon Linux 2)  
 
 ---
-## Production-Level Best Practices Implemented
 
-✔ Private backend instances  
-✔ No direct internet exposure  
-✔ No SSH key management  
-✔ Security group chaining  
-✔ Health-based automation  
-✔ Scaling based on metrics  
-✔ Infrastructure resilience validation  
+## Strengths & Limitations
+
+### Strengths
+
+- **High Availability (Multi-AZ Deployment):** Application remains accessible even if one Availability Zone fails.  
+- **Self-Healing Infrastructure:** Unhealthy or terminated instances are automatically replaced by the Auto Scaling Group.  
+- **Elastic Scalability:** CPU-based target tracking dynamically adjusts capacity based on demand.  
+- **Secure Backend Architecture:** EC2 instances are deployed in private subnets with no public IP exposure.  
+- **Health-Based Automation:** Application Load Balancer health checks ensure only healthy instances receive traffic.  
+- **Production-Oriented Design:** Follows core Site Reliability Engineering (SRE) principles such as designing for failure and automated recovery.
 
 ---
 
-## Lessons Learned
+### Current Limitations (Future Improvements)
 
-- Health checks are critical for automated recovery.
-- Multi-AZ deployment significantly improves fault tolerance.
-- Proper security group segmentation prevents unintended exposure.
-- Auto Scaling ensures infrastructure elasticity under dynamic workloads.
-- Designing with failure scenarios in mind improves reliability.
+- **Manual Infrastructure Provisioning:** Can be improved by implementing Infrastructure as Code (Terraform or CloudFormation).  
+- **NAT Gateway Cost Optimization:** Could be replaced with a NAT Instance for cost efficiency in non-production environments.  
+- **Limited Observability:** Can be enhanced with CloudWatch dashboards and log aggregation.
+- **No CI/CD Pipeline:** Deployment updates are manual; future improvement includes automated CI/CD integration for zero-downtime deployments.   
+- **Single-Region Deployment:** The system is Multi-AZ but not Multi-Region; cross-region failover could improve disaster recovery resilience.
 
 ---
 
