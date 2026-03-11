@@ -14,7 +14,7 @@ This project addresses that challenge by building a resilient, self-healing arch
 
 ## Project Overview
 
-Designed and deployed a **highly available, self-healing web infrastructure on AWS** that automatically detects and recovers from application and instance failures without manual intervention.
+Designed and deployed a **highly available, self-healing web infrastructure on AWS** that automatically detects and recovers from failures.
 
 This project simulates real-world **Site Reliability Engineering (SRE)** principles by implementing:
 
@@ -22,7 +22,6 @@ This project simulates real-world **Site Reliability Engineering (SRE)** princip
 - Health-based instance replacement
 - Target tracking auto scaling
 - Secure private subnet architecture
-- Zero-SSH access using Systems Manager (SSM)
 - Automated instance provisioning using Launch Templates
 
 The system is built to **design for failure**, not just deployment.
@@ -61,15 +60,13 @@ The system is built to **design for failure**, not just deployment.
 
 ### Security Design
 - No public IP on EC2 instances
-- No SSH access (port 22 closed)
-- SSM-only access using IAM role
 - Security Group referencing:
   - ALB SG → EC2 SG only
-- IAM role-based authentication (no static credentials)
+- IAM role-based authentication
 
 ### Scaling & Self-Healing
 - Target Tracking Scaling Policy
-- CPU utilization target: 50%
+- CPU utilization target: 30%
 - ELB health checks enabled
 - EC2 health checks enabled
 - Automatic unhealthy instance termination and replacement
