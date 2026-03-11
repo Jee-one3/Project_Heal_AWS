@@ -72,7 +72,7 @@ The system is built to **design for failure**, not just deployment.
 
 The system was intentionally stress-tested to validate resilience.
 
-### Application Crash Simulation
+### 1. Application Crash Simulation
 Stopped Apache service on one instance.
 
 **Result:**
@@ -85,7 +85,7 @@ Stopped Apache service on one instance.
 
 ---
 
-### Manual Instance Termination
+### 2. Manual Instance Termination
 Terminated one EC2 instance manually.
 
 **Result:**
@@ -96,7 +96,7 @@ Terminated one EC2 instance manually.
 
 ---
 
-### Load Spike Simulation
+### 3. Load Spike Simulation
 Generated high CPU load using stress tool.
 
 **Result:**
