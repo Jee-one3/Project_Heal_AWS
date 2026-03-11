@@ -1,9 +1,9 @@
-# 🚀 Highly Available & Resilient Infrastructure with Auto Scaling on AWS  
+# Highly Available & Resilient Infrastructure with Auto Scaling on AWS  
 ### Multi-AZ | Auto Scaling | Health-Based Recovery | Secure Private Backend
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 Designed and deployed a **highly available, self-healing web infrastructure on AWS** that automatically detects and recovers from application and instance failures without manual intervention.
 
@@ -20,16 +20,16 @@ The system is built to **design for failure**, not just deployment.
 
 ---
 
-## 📊 Architecture Diagram
+## Architecture Diagram
 
 ![Architecture Diagram](Auto-heal.png)
 
 
 ---
 
-## 🧱 Architecture Components
+## Architecture Components
 
-### 🌐 Networking Layer
+### Networking Layer
 - Custom VPC (10.0.0.0/16)
 - 2 Public Subnets (Multi-AZ)
 - 2 Private Subnets (Multi-AZ)
@@ -37,20 +37,20 @@ The system is built to **design for failure**, not just deployment.
 - NAT Gateway (controlled outbound access)
 - Separate Route Tables (public/private segmentation)
 
-### ⚖️ Load Balancing Layer
+### Load Balancing Layer
 - Application Load Balancer (ALB)
 - Internet-facing
 - HTTP (Port 80)
 - Health checks enabled (`/` endpoint)
 
-### 🖥️ Compute Layer
+### Compute Layer
 - Launch Template (immutable configuration)
 - Auto Scaling Group (Min: 2, Max: 4)
 - EC2 instances in private subnets only
 - Amazon Linux 2
 - Apache Web Server installed via User Data
 
-### 🔐 Security Design
+### Security Design
 - No public IP on EC2 instances
 - No SSH access (port 22 closed)
 - SSM-only access using IAM role
@@ -58,7 +58,7 @@ The system is built to **design for failure**, not just deployment.
   - ALB SG → EC2 SG only
 - IAM role-based authentication (no static credentials)
 
-### 📈 Scaling & Self-Healing
+### Scaling & Self-Healing
 - Target Tracking Scaling Policy
 - CPU utilization target: 50%
 - ELB health checks enabled
@@ -68,11 +68,11 @@ The system is built to **design for failure**, not just deployment.
 
 ---
 
-## 🔁 Self-Healing & Failure Testing
+## Self-Healing & Failure Testing
 
 The system was intentionally stress-tested to validate resilience.
 
-### 1️⃣ Application Crash Simulation
+### Application Crash Simulation
 Stopped Apache service on one instance.
 
 **Result:**
@@ -85,7 +85,7 @@ Stopped Apache service on one instance.
 
 ---
 
-### 2️⃣ Manual Instance Termination
+### Manual Instance Termination
 Terminated one EC2 instance manually.
 
 **Result:**
@@ -96,7 +96,7 @@ Terminated one EC2 instance manually.
 
 ---
 
-### 3️⃣ Load Spike Simulation
+### Load Spike Simulation
 Generated high CPU load using stress tool.
 
 **Result:**
@@ -108,7 +108,7 @@ Generated high CPU load using stress tool.
 
 ---
 
-## 🔍 Traffic Flow
+## Traffic Flow
 Internet
 ➜
 Internet Gateway
@@ -121,7 +121,7 @@ NAT Gateway (Outbound only)
 
 ---
 
-## 📊 Skills & Technologies Used
+## Skills & Technologies Used
 
 - Amazon EC2  
 - Application Load Balancer (ALB)  
@@ -135,7 +135,7 @@ NAT Gateway (Outbound only)
 - Linux (Amazon Linux 2)  
 
 ---
-## 🏆 Production-Level Best Practices Implemented
+## Production-Level Best Practices Implemented
 
 ✔ Private backend instances  
 ✔ No direct internet exposure  
@@ -147,7 +147,7 @@ NAT Gateway (Outbound only)
 
 ---
 
-## 💡 Lessons Learned
+## Lessons Learned
 
 - Health checks are critical for automated recovery.
 - Multi-AZ deployment significantly improves fault tolerance.
@@ -157,7 +157,7 @@ NAT Gateway (Outbound only)
 
 ---
 
-## 📌 Why This Project Matters
+## Why This Project Matters
 
 This project demonstrates hands-on experience in:
 
@@ -171,14 +171,14 @@ It reflects real-world DevOps and Site Reliability Engineering practices.
 
 ---
 
-## 📈 Outputs
+## Outputs
 
 ![VPC Structure](Outputs/1_VPC_Map.png)
 ![Target Group Healthy](Outputs/2_Target_Health.png)
 ![ASG Activity Showing Instance Replacement](Outputs/3_ASG_activity.png)
 ![ALB Design](Outputs/4_ALB_Map.png)
 
-## 👤 Author
+## Author
 
 Jeevan Rohith Antony Manohar  
 MS Computer Science | San Diego State University  
